@@ -44,9 +44,13 @@ app.use(cookieParser());
 const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
 const userRouter = require("./routes/user");
+const todoRouter = require("./routes/todo");
+const categorieRouter = require("./routes/categorie");
 
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 app.use("/user", userRouter);
+app.use("/todo", todoRouter);
+app.use("/categorie", categorieRouter);
 
 server.listen(5000, () => console.log(`Server is listening on port 5000`));
