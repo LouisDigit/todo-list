@@ -4,7 +4,6 @@ const router = express.Router();
 const Todo = require("../models/Todo");
 
 // GET all todo
-
 router.get("/", (req, res) => {
   Todo.find((err, docs) => {
     if (!err) res.send(docs);
@@ -12,6 +11,22 @@ router.get("/", (req, res) => {
   });
 });
 
+// GET todos done by userId
+router.get("/done/:userId", (req, res) => {
+  const { userId } = req.params;
+
+  Todo.find(
+    {
+      userId: userId,
+      status: "done",
+    },
+    (err, docs) => {
+      if (!err) res.send(docs);
+      else console.log("Todo done not found :" + err);
+    }
+  );
+});
+console.log("test");
 // GET todo by userId
 router.get("/:userId", (req, res) => {
   const { userId } = req.params;
