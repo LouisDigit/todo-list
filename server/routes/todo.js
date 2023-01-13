@@ -26,7 +26,7 @@ router.get("/done/:userId", (req, res) => {
     }
   );
 });
-console.log("test");
+
 // GET todo by userId
 router.get("/:userId", (req, res) => {
   const { userId } = req.params;
